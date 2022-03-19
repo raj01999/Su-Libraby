@@ -46,6 +46,7 @@ class Search {
     }
 
     searching() {
+        document.getElementById("addBookContainer").style.display = "none";
         let elements = document.getElementsByClassName("bookNameShow");
         Array.from(elements).forEach((ele, idx) => {
             let row = document.getElementById(`row${idx}`);
