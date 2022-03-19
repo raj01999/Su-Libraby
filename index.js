@@ -17,22 +17,35 @@ class Book {
                 <td class ="td"><button id="btn${this.idx}" class="btn btn-primary" onclick="deleting(this.id)">Delete</button></td>`;
         tableRow.innerHTML = html;
         tableBody.appendChild(tableRow);
+
+        document.getElementById("bookAddedSuccess").style.display = "block";
+
+        setTimeout(()=>{
+            document.getElementById("bookAddedSuccess").style.display = "none";
+        }, 3500);
+
     }
 
     validating() {
         if (this.bookName.length < 3) {
-            document.getElementById("bookNameError").style.display = "block"
+
+            document.getElementById("bookNameError").style.display = "block";
+
             setTimeout(()=>{
-                document.getElementById("bookNameError").style.display = "none"
-            },3500)
+                document.getElementById("bookNameError").style.display = "none";
+            }, 3500);
+
             return false;
         }
         if (this.author.length < 3) {
-            document.getElementById("authorNameError").style.display = "block"
+
+            document.getElementById("authorNameError").style.display = "block";
+
             setTimeout(()=>{
-                document.getElementById("authorNameError").style.display = "none"
-            },3500)
-            return false
+                document.getElementById("authorNameError").style.display = "none";
+            }, 3500);
+
+            return false;
         }
         return true;
     }
@@ -48,8 +61,10 @@ class Search {
     searching() {
         document.getElementById("addBookContainer").style.display = "none";
         let elements = document.getElementsByClassName("bookNameShow");
+
         Array.from(elements).forEach((ele) => {
             let row = document.getElementById(`row${ele.id.replace("name", "")}`);
+
             if (ele.innerHTML.toLowerCase().includes(this.searchKey)) {
                 row.style.display = "table-row";
             }
@@ -57,6 +72,7 @@ class Search {
                 row.style.display = "none";
             }
         });
+
     }
 }
 
@@ -73,13 +89,9 @@ form.addEventListener("submit", (e) => {
 
     if (newBook.validating()) {
         newBook.addToDom();
-        document.getElementById("bookAddedSuccess").style.display = "block"
-        setTimeout(()=>{
-            document.getElementById("bookAddedSuccess").style.display = "none"
-        },3500)
         idx++;
         document.getElementById("addBookContainer").style.display = "none";
-        form.reset()
+        form.reset();
     }
 });
 
