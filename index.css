@@ -14,3 +14,7 @@ td{
 .alert{
     display: none;
 }
+
+#addBookContainer{
+    display: none;
+}

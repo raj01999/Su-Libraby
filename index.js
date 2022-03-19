@@ -62,7 +62,6 @@ class Search {
 
 // adding the books and populating the dom.
 let idx = 0;
-document.getElementById("addBookContainer").style.display = "none";
 let form = document.getElementById("form");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
