@@ -11,7 +11,7 @@ class Book {
         let tableBody = document.getElementById("tableBody");
         let tableRow = document.createElement("tr");
         tableRow.setAttribute("id", `row${this.idx}`);
-        let html = `<td class ="bookNameShow">${this.bookName}</td>
+        let html = `<td id="name${this.idx}" class ="bookNameShow">${this.bookName}</td>
                 <td>${this.author}</td>
                 <td class="td">${this.type}</td>
                 <td class ="td"><button id="btn${this.idx}" class="btn btn-primary" onclick="deleting(this.id)">Delete</button></td>`;
@@ -48,8 +48,8 @@ class Search {
     searching() {
         document.getElementById("addBookContainer").style.display = "none";
         let elements = document.getElementsByClassName("bookNameShow");
-        Array.from(elements).forEach((ele, idx) => {
-            let row = document.getElementById(`row${idx}`);
+        Array.from(elements).forEach((ele) => {
+            let row = document.getElementById(`row${ele.id.replace("name", "")}`);
             if (ele.innerHTML.toLowerCase().includes(this.searchKey)) {
                 row.style.display = "table-row";
             }
