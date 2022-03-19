@@ -1,0 +1,16 @@
+.addBookArea{
+    color: white !important;
+    background-color: black;
+}
+
+td{
+    word-break: break-word;
+}
+
+.td{
+    word-break: keep-all;
+}
+
+.alert{
+    display: none;
+}
